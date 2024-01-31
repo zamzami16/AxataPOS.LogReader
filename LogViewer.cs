@@ -56,8 +56,8 @@ namespace AxataPOS.LogReader
                             DgvData.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
                             break;
 
-                        case "Warning":
-                            DgvData.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Yellow;
+                        case "Warn":
+                            DgvData.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.BlueViolet;
                             break;
 
                         case "Info":
@@ -74,7 +74,7 @@ namespace AxataPOS.LogReader
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "AxataPOS");
             CboFiles.Items.Clear();
-            CboFiles.Items.AddRange(new string[] { "", "Pilih File" });
+            CboFiles.Items.AddRange(new string[] { "", "Semua", "Pilih File" });
             CboFiles.Text = "";
             CboLevel.Items.Clear();
             CboLevel.SetItems<LogLevel>();
@@ -129,32 +129,61 @@ namespace AxataPOS.LogReader
             }
         }
 
+        private void ChangeLblDates()
+        {
+            DateTime max = DateTime.Now;
+            DateTime min = DateTime.Now;
+
+            if (_allLogEntries != null && _allLogEntries.Any())
+            {
+                max = _allLogEntries.SelectMany(l => l.Value).Max(l => l.Time);
+                min = _allLogEntries.SelectMany(l => l.Value).Min(l => l.Time);
+            }
+            lblDates.Text = $"All: {min:yyyy/MM/dd}  s/d  {max:yyyy/MM/dd}";
+        }
+
         private void SupplyData()
         {
-            if (_allLogEntries.ContainsKey(CboFiles.Text))
+            ChangeLblDates();
+
+            if (CboFiles.Text.Equals("", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+
+            bool showAll = false;
+            if (CboFiles.Text.Equals("Semua", StringComparison.OrdinalIgnoreCase))
+            {
+                showAll = true;
+                _logs = _allLogEntries.SelectMany(l => l.Value).ToList();
+            }
+
+            if (!showAll && !_allLogEntries.ContainsKey(CboFiles.Text))
+            {
+                return;
+            }
+
+            if (!showAll)
             {
                 _logs = _allLogEntries[CboFiles.Text];
-                var endDate = _logs.Max(l => l.Time);
-                var startDate = _logs.Min(l => l.Time);
-                DtpEnd.Value = endDate;
-                DtpStart.Value = startDate;
-
-                LogFilter logFilter = new LogFilter()
-                {
-                    Filters = TxtSerach.Text,
-                    DateStart = DtpStart.Value.Date,
-                    DateEnd = DtpEnd.Value.Date,
-                    LogLevel = CboLevel.GetSelectedEnumValue<LogLevel>(),
-                    CurrentPage = pageControl.CurrentPage,
-                    PageCount = pageControl.TotalPages,
-                };
-                var data = _logs.Filters(logFilter);
-                int totalPages = (int)Math.Ceiling((decimal)data.Count() / BatchSize);
-                pageControl.TotalPages = totalPages;
-                pageControl.CurrentPage = 1;
-                _pagedLogEntries = PagedLogEntries(data, BatchSize, totalPages);
-                SupplyPagedData();
             }
+
+            LogFilter logFilter = new LogFilter()
+            {
+                Filters = TxtSerach.Text,
+                DateStart = DtpStart.Value.Date,
+                DateEnd = DtpEnd.Value.Date,
+                LogLevel = CboLevel.GetSelectedEnumValue<LogLevel>(),
+                CurrentPage = pageControl.CurrentPage,
+                PageCount = pageControl.TotalPages,
+            };
+
+            var data = _logs.Filters(logFilter);
+            int totalPages = (int)Math.Ceiling((decimal)data.Count() / BatchSize);
+            pageControl.TotalPages = totalPages;
+            pageControl.CurrentPage = 1;
+            _pagedLogEntries = PagedLogEntries(data, BatchSize, totalPages);
+            SupplyPagedData();
         }
 
         private DataSet PagedLogEntries(IEnumerable<LogEntry> logs, int batchSize, int totalPage)
@@ -211,19 +240,13 @@ namespace AxataPOS.LogReader
         }
 
         private void kryptonDateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            SupplyData();
-        }
+            => SupplyData();
 
         private void CboLevel_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SupplyData();
-        }
+            => SupplyData();
 
         private void TxtSerach_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.OnEnterPerform(() => SupplyData());
-        }
+            => e.OnEnterPerform(() => SupplyData());
 
         private void DgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -273,19 +296,9 @@ namespace AxataPOS.LogReader
         }
 
         private int RowIndex()
-        {
-            if (DgvData.SelectedRows.Count > 0)
-            {
-                return DgvData.SelectedRows[0].Index;
-            }
+            => DgvData.SelectedRows.Count > 0 ? DgvData.SelectedRows[0].Index : -1;
 
-            return -1;
-        }
-
-        private void pageControl_PageChanged(object sender, int e)
-        {
-            SupplyPagedData();
-        }
+        private void pageControl_PageChanged(object sender, int e) => SupplyPagedData();
 
         private void DgvData_RowPostPaint_1(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -303,6 +316,31 @@ namespace AxataPOS.LogReader
                 var bounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top - 1, dgv.RowHeadersWidth, e.RowBounds.Height);
                 e.Graphics.DrawString(rowHeaderText, FontCell, brush, bounds, textFormat);
             }
+        }
+
+        private void LogViewer_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void LogViewer_DragDrop(object sender, DragEventArgs e)
+        {
+            // Retrieve the file paths from the data
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+            // Perform operations with the file paths
+            foreach (string file in files)
+            {
+                ReadFile(file);
+            }
+            SupplyData();
         }
     }
 }

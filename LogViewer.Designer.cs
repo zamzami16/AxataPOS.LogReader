@@ -45,13 +45,14 @@
             this.MenuViewDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.DtpEnd = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.pageControl = new AxataPOS.LogReader.PageControl();
             this.DgvData = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Logger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exception = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pageControl = new AxataPOS.LogReader.PageControl();
+            this.lblDates = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)(this.CboFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CboLevel)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -77,12 +78,12 @@
             // TxtFolder
             // 
             this.TxtFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtFolder.Location = new System.Drawing.Point(532, 12);
+            this.TxtFolder.Location = new System.Drawing.Point(483, 12);
             this.TxtFolder.Name = "TxtFolder";
             this.TxtFolder.Palette = this.kryptonPalette1;
             this.TxtFolder.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.TxtFolder.ReadOnly = true;
-            this.TxtFolder.Size = new System.Drawing.Size(386, 23);
+            this.TxtFolder.Size = new System.Drawing.Size(435, 23);
             this.TxtFolder.TabIndex = 1;
             this.TxtFolder.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -140,7 +141,8 @@
             // 
             // TxtSerach
             // 
-            this.TxtSerach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TxtSerach.AllowButtonSpecToolTips = true;
+            this.TxtSerach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtSerach.Location = new System.Drawing.Point(501, 44);
             this.TxtSerach.Name = "TxtSerach";
@@ -181,25 +183,14 @@
             this.DtpEnd.Size = new System.Drawing.Size(93, 21);
             this.DtpEnd.TabIndex = 12;
             // 
-            // pageControl
-            // 
-            this.pageControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pageControl.CurrentPage = 1;
-            this.pageControl.Location = new System.Drawing.Point(801, 41);
-            this.pageControl.Name = "pageControl";
-            this.pageControl.Size = new System.Drawing.Size(212, 30);
-            this.pageControl.TabIndex = 10;
-            this.pageControl.TotalPages = 1;
-            this.pageControl.PageChanged += new System.EventHandler<int>(this.pageControl_PageChanged);
-            // 
             // DgvData
             // 
             this.DgvData.AllowUserToAddRows = false;
             this.DgvData.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
             this.DgvData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.DgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -269,11 +260,34 @@
             this.Exception.Name = "Exception";
             this.Exception.ReadOnly = true;
             // 
+            // pageControl
+            // 
+            this.pageControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageControl.CurrentPage = 1;
+            this.pageControl.Location = new System.Drawing.Point(801, 41);
+            this.pageControl.Name = "pageControl";
+            this.pageControl.Size = new System.Drawing.Size(212, 30);
+            this.pageControl.TabIndex = 10;
+            this.pageControl.TotalPages = 1;
+            this.pageControl.PageChanged += new System.EventHandler<int>(this.pageControl_PageChanged);
+            // 
+            // lblDates
+            // 
+            this.lblDates.AutoSize = false;
+            this.lblDates.Location = new System.Drawing.Point(278, 12);
+            this.lblDates.Name = "lblDates";
+            this.lblDates.Size = new System.Drawing.Size(199, 25);
+            this.lblDates.TabIndex = 14;
+            this.lblDates.Values.Text = "2024/01/02  s/d  2024/01/03";
+            // 
             // LogViewer
             // 
+            this.AllowButtonSpecToolTips = true;
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 475);
+            this.Controls.Add(this.lblDates);
             this.Controls.Add(this.DgvData);
             this.Controls.Add(this.DtpEnd);
             this.Controls.Add(this.kryptonLabel4);
@@ -299,6 +313,8 @@
             this.TextExtra = "";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.LogViewer_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.LogViewer_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.LogViewer_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.CboFiles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CboLevel)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -331,6 +347,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Logger;
         private System.Windows.Forms.DataGridViewTextBoxColumn Message;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exception;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDates;
     }
 }
 
