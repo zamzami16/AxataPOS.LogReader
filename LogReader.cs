@@ -20,7 +20,7 @@ namespace AxataPOS.LogReader
     {
         Semua,
         Error,
-        Warning,
+        Warn,
         Info,
     }
 

@@ -60,6 +60,9 @@
     <ApplicationIcon>icons8-log-48.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>..\..\..\AxataPOS-v4\Src\AxataPOS.App\bin\Debug\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
       <HintPath>..\..\..\AxataPOS-v4\Src\Solutions\packages\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>

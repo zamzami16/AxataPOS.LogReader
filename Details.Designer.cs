@@ -77,7 +77,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 461);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // kryptonLabel1
@@ -110,7 +110,7 @@
             // kryptonLabel4
             // 
             this.kryptonLabel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonLabel4.Location = new System.Drawing.Point(128, 215);
+            this.kryptonLabel4.Location = new System.Drawing.Point(128, 218);
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(14, 20);
             this.kryptonLabel4.TabIndex = 3;
@@ -150,7 +150,7 @@
             // 
             this.kryptonLabel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.kryptonLabel8.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel8.Location = new System.Drawing.Point(3, 215);
+            this.kryptonLabel8.Location = new System.Drawing.Point(3, 218);
             this.kryptonLabel8.Name = "kryptonLabel8";
             this.kryptonLabel8.Size = new System.Drawing.Size(119, 20);
             this.kryptonLabel8.TabIndex = 7;
@@ -170,10 +170,10 @@
             // rtbException
             // 
             this.rtbException.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbException.Location = new System.Drawing.Point(148, 215);
+            this.rtbException.Location = new System.Drawing.Point(148, 218);
             this.rtbException.Name = "rtbException";
             this.rtbException.ReadOnly = true;
-            this.rtbException.Size = new System.Drawing.Size(649, 232);
+            this.rtbException.Size = new System.Drawing.Size(649, 240);
             this.rtbException.TabIndex = 11;
             this.rtbException.Text = "";
             // 
@@ -183,7 +183,7 @@
             this.rtbMessage.Location = new System.Drawing.Point(148, 113);
             this.rtbMessage.Name = "rtbMessage";
             this.rtbMessage.ReadOnly = true;
-            this.rtbMessage.Size = new System.Drawing.Size(649, 96);
+            this.rtbMessage.Size = new System.Drawing.Size(649, 99);
             this.rtbMessage.TabIndex = 12;
             this.rtbMessage.Text = "Message";
             // 
@@ -230,12 +230,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 461);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(126, 50);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detail";

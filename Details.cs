@@ -41,8 +41,8 @@ namespace AxataPOS.LogReader
                 case LogLevel.Error:
                     SetColor(lblLevel, Color.Red);
                     break;
-                case LogLevel.Warning:
-                    SetColor(lblLevel, Color.Yellow);
+                case LogLevel.Warn:
+                    SetColor(lblLevel, Color.BlueViolet);
                     break;
                 case LogLevel.Info:
                 default:
