@@ -26,4 +26,6 @@ jobs:
 
     - name: Deploy
       run: |
+        # Copy the built binaries to the destination directory
+        xcopy "src\bin\Release\" "C:\Destination\" /E /Y
       working-directory: src
