@@ -14,9 +14,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Build
+    - name: Use MSBuild
       run: |
-        msbuild /p:Configuration=Release /m /p:Platform="Any CPU" /t:Rebuild
+        "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" /p:Configuration=Release /m /p:Platform="Any CPU" /t:Rebuild
       working-directory: src
 
     - name: Deploy
