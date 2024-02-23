@@ -63,6 +63,26 @@ namespace AxataPOS.LogReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap detail_12 {
+            get {
+                object obj = ResourceManager.GetObject("detail_12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap first_12 {
+            get {
+                object obj = ResourceManager.GetObject("first_12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_next_12 {
             get {
                 object obj = ResourceManager.GetObject("icons8_next_12", resourceCulture);
@@ -86,6 +106,26 @@ namespace AxataPOS.LogReader.Properties {
         internal static System.Drawing.Bitmap icons8_previous_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8_previous_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap last_12 {
+            get {
+                object obj = ResourceManager.GetObject("last_12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_12 {
+            get {
+                object obj = ResourceManager.GetObject("settings_12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

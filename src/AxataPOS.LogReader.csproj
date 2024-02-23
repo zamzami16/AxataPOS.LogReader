@@ -122,6 +122,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Details.resx">
       <DependentUpon>Details.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +151,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -161,6 +171,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8-log-48.ico" />
+    <None Include="Resources\detail-12.png" />
+    <None Include="Resources\settings-12.png" />
+    <None Include="Resources\last-12.png" />
+    <None Include="Resources\first-12.png" />
     <None Include="Resources\icons8-next-12.png" />
     <None Include="Resources\icons8-previous-12.png" />
     <None Include="Resources\icons8-previous-24.png" />
