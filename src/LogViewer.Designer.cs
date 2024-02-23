@@ -43,6 +43,8 @@
             this.TxtSerach = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuViewDetail = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.MenuSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.DtpEnd = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.DgvData = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -51,8 +53,8 @@
             this.Logger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exception = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pageControl = new AxataPOS.LogReader.PageControl();
             this.lblDates = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.pageControl = new AxataPOS.LogReader.PageControl();
             ((System.ComponentModel.ISupportInitialize)(this.CboFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CboLevel)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -142,13 +144,13 @@
             // TxtSerach
             // 
             this.TxtSerach.AllowButtonSpecToolTips = true;
-            this.TxtSerach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.TxtSerach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtSerach.Location = new System.Drawing.Point(501, 44);
             this.TxtSerach.Name = "TxtSerach";
             this.TxtSerach.Palette = this.kryptonPalette1;
             this.TxtSerach.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.TxtSerach.Size = new System.Drawing.Size(294, 23);
+            this.TxtSerach.Size = new System.Drawing.Size(241, 23);
             this.TxtSerach.TabIndex = 9;
             this.TxtSerach.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSerach_KeyDown);
             // 
@@ -156,16 +158,32 @@
             // 
             this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuViewDetail});
+            this.MenuViewDetail,
+            this.toolStripSeparator1,
+            this.MenuSettings});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(133, 54);
             // 
             // MenuViewDetail
             // 
+            this.MenuViewDetail.Image = global::AxataPOS.LogReader.Properties.Resources.detail_12;
             this.MenuViewDetail.Name = "MenuViewDetail";
             this.MenuViewDetail.Size = new System.Drawing.Size(132, 22);
             this.MenuViewDetail.Text = "View Detail";
             this.MenuViewDetail.Click += new System.EventHandler(this.MenuViewDetail_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
+            // 
+            // MenuSettings
+            // 
+            this.MenuSettings.Image = global::AxataPOS.LogReader.Properties.Resources.settings_12;
+            this.MenuSettings.Name = "MenuSettings";
+            this.MenuSettings.Size = new System.Drawing.Size(132, 22);
+            this.MenuSettings.Text = "Settings";
+            this.MenuSettings.Click += new System.EventHandler(this.MenuSettings_Click);
             // 
             // kryptonLabel4
             // 
@@ -189,8 +207,8 @@
             this.DgvData.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
             this.DgvData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.DgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -208,7 +226,7 @@
             this.DgvData.Size = new System.Drawing.Size(1001, 390);
             this.DgvData.TabIndex = 13;
             this.DgvData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvData_CellFormatting);
-            this.DgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvData_RowPostPaint_1);
+            this.DgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvData_RowPostPaint);
             // 
             // Time
             // 
@@ -260,17 +278,6 @@
             this.Exception.Name = "Exception";
             this.Exception.ReadOnly = true;
             // 
-            // pageControl
-            // 
-            this.pageControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pageControl.CurrentPage = 1;
-            this.pageControl.Location = new System.Drawing.Point(801, 41);
-            this.pageControl.Name = "pageControl";
-            this.pageControl.Size = new System.Drawing.Size(212, 30);
-            this.pageControl.TabIndex = 10;
-            this.pageControl.TotalPages = 1;
-            this.pageControl.PageChanged += new System.EventHandler<int>(this.pageControl_PageChanged);
-            // 
             // lblDates
             // 
             this.lblDates.AutoSize = false;
@@ -279,6 +286,18 @@
             this.lblDates.Size = new System.Drawing.Size(199, 25);
             this.lblDates.TabIndex = 14;
             this.lblDates.Values.Text = "2024/01/02  s/d  2024/01/03";
+            // 
+            // pageControl
+            // 
+            this.pageControl.ActivateTooltipOnTextBox = true;
+            this.pageControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageControl.CurrentPage = 1;
+            this.pageControl.Location = new System.Drawing.Point(748, 41);
+            this.pageControl.Name = "pageControl";
+            this.pageControl.Size = new System.Drawing.Size(265, 30);
+            this.pageControl.TabIndex = 10;
+            this.pageControl.TotalPages = 1;
+            this.pageControl.PageChanged += new System.EventHandler<int>(this.pageControl_PageChanged);
             // 
             // LogViewer
             // 
@@ -348,6 +367,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Message;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exception;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDates;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem MenuSettings;
     }
 }
 

@@ -2,6 +2,6 @@
 {
     internal class Config
     {
-        internal const int BATCH_SIZE = 1000;
+        internal static int BATCH_SIZE = 1000;
     }
 }

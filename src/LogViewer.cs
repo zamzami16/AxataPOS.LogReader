@@ -248,24 +248,6 @@ namespace AxataPOS.LogReader
         private void TxtSerach_KeyDown(object sender, KeyEventArgs e)
             => e.OnEnterPerform(() => SupplyData());
 
-        private void DgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            var rowHeaderText = (e.RowIndex + 1).ToString();
-            var dgv = sender as KryptonDataGridView;
-            var FontCell = new Font("Trebuchet MS", 10F);
-            using (SolidBrush brush = new SolidBrush(dgv.RowHeadersDefaultCellStyle.ForeColor))
-            {
-                var textFormat = new StringFormat()
-                {
-                    Alignment = StringAlignment.Center,
-                    LineAlignment = StringAlignment.Center
-                };
-
-                var bounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top - 1, dgv.RowHeadersWidth, e.RowBounds.Height);
-                e.Graphics.DrawString(rowHeaderText, FontCell, brush, bounds, textFormat);
-            }
-        }
-
         private void MenuViewDetail_Click(object sender, EventArgs e)
         {
             try
@@ -300,9 +282,10 @@ namespace AxataPOS.LogReader
 
         private void pageControl_PageChanged(object sender, int e) => SupplyPagedData();
 
-        private void DgvData_RowPostPaint_1(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void DgvData_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var rowHeaderText = (e.RowIndex + 1).ToString();
+            var firstRow = (pageControl.CurrentPage - 1) * BatchSize + 1;
+            var rowHeaderText = (e.RowIndex + firstRow).ToString();
             var dgv = sender as KryptonDataGridView;
             var FontCell = new Font("Trebuchet MS", 10F);
             using (SolidBrush brush = new SolidBrush(dgv.RowHeadersDefaultCellStyle.ForeColor))
@@ -341,6 +324,14 @@ namespace AxataPOS.LogReader
                 ReadFile(file);
             }
             SupplyData();
+        }
+
+        private void MenuSettings_Click(object sender, EventArgs e)
+        {
+            using (var frm = new SettingsForm())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }
