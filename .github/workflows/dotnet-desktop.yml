@@ -13,13 +13,3 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Use MSBuild
-      run: |
-        "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" /p:Configuration=Release /m /p:Platform="Any CPU" /t:Rebuild
-      working-directory: src
-
-    - name: Deploy
-      run: |
-        # Add your deployment steps here, such as copying the built binaries to your desired location.
-      working-directory: src
