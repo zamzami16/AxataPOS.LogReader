@@ -17,7 +17,7 @@ namespace AxataPOS.LogReader
         private Dictionary<string, IEnumerable<LogEntry>> _allLogEntries = new Dictionary<string, IEnumerable<LogEntry>>();
         private DataSet _pagedLogEntries;
 
-        int BatchSize = Config.BATCH_SIZE;
+        int BatchSize => Config.BATCH_SIZE;
 
         public LogViewer()
         {
@@ -127,6 +127,18 @@ namespace AxataPOS.LogReader
             {
                 MessageBox.Show($"Error reading JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ReadOrUpdate(string filePath)
+        {
+            string fileName = Path.GetFileName(filePath);
+            if (_allLogEntries.ContainsKey(fileName))
+            {
+                _allLogEntries.Remove(fileName);
+                CboFiles.Items.Remove(fileName);
+            }
+
+            ReadFile(filePath);
         }
 
         private void ChangeLblDates()
@@ -321,7 +333,7 @@ namespace AxataPOS.LogReader
             // Perform operations with the file paths
             foreach (string file in files)
             {
-                ReadFile(file);
+                ReadOrUpdate(file);
             }
             SupplyData();
         }
@@ -331,6 +343,8 @@ namespace AxataPOS.LogReader
             using (var frm = new SettingsForm())
             {
                 frm.ShowDialog();
+                var setting = new Settings();
+                SupplyData();
             }
         }
     }
