@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogViewer));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.BtnBrowseFolder = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -48,13 +49,13 @@
             this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.DtpEnd = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
             this.DgvData = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.lblDates = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.pageControl = new AxataPOS.LogReader.PageControl();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Logger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exception = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblDates = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.pageControl = new AxataPOS.LogReader.PageControl();
             ((System.ComponentModel.ISupportInitialize)(this.CboFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CboLevel)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -230,10 +231,33 @@
             this.DgvData.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvData_CellFormatting);
             this.DgvData.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.DgvData_RowPostPaint);
             // 
+            // lblDates
+            // 
+            this.lblDates.AutoSize = false;
+            this.lblDates.Location = new System.Drawing.Point(278, 12);
+            this.lblDates.Name = "lblDates";
+            this.lblDates.Size = new System.Drawing.Size(199, 25);
+            this.lblDates.TabIndex = 14;
+            this.lblDates.Values.Text = "2024/01/02  s/d  2024/01/03";
+            // 
+            // pageControl
+            // 
+            this.pageControl.ActivateTooltipOnTextBox = true;
+            this.pageControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageControl.CurrentPage = 1;
+            this.pageControl.Location = new System.Drawing.Point(748, 41);
+            this.pageControl.Name = "pageControl";
+            this.pageControl.Size = new System.Drawing.Size(265, 30);
+            this.pageControl.TabIndex = 10;
+            this.pageControl.TotalPages = 1;
+            this.pageControl.PageChanged += new System.EventHandler<int>(this.pageControl_PageChanged);
+            // 
             // Time
             // 
             this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Time.DataPropertyName = "Time";
+            dataGridViewCellStyle2.Format = "yyyy/MM/dd HH:mm:ss:fff";
+            this.Time.DefaultCellStyle = dataGridViewCellStyle2;
             this.Time.HeaderText = "Timestamp";
             this.Time.MinimumWidth = 150;
             this.Time.Name = "Time";
@@ -279,27 +303,6 @@
             this.Exception.MinimumWidth = 175;
             this.Exception.Name = "Exception";
             this.Exception.ReadOnly = true;
-            // 
-            // lblDates
-            // 
-            this.lblDates.AutoSize = false;
-            this.lblDates.Location = new System.Drawing.Point(278, 12);
-            this.lblDates.Name = "lblDates";
-            this.lblDates.Size = new System.Drawing.Size(199, 25);
-            this.lblDates.TabIndex = 14;
-            this.lblDates.Values.Text = "2024/01/02  s/d  2024/01/03";
-            // 
-            // pageControl
-            // 
-            this.pageControl.ActivateTooltipOnTextBox = true;
-            this.pageControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pageControl.CurrentPage = 1;
-            this.pageControl.Location = new System.Drawing.Point(748, 41);
-            this.pageControl.Name = "pageControl";
-            this.pageControl.Size = new System.Drawing.Size(265, 30);
-            this.pageControl.TabIndex = 10;
-            this.pageControl.TotalPages = 1;
-            this.pageControl.PageChanged += new System.EventHandler<int>(this.pageControl_PageChanged);
             // 
             // LogViewer
             // 
@@ -363,14 +366,14 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
         private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker DtpEnd;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView DgvData;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDates;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem MenuSettings;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn Level;
         private System.Windows.Forms.DataGridViewTextBoxColumn Logger;
         private System.Windows.Forms.DataGridViewTextBoxColumn Message;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exception;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDates;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem MenuSettings;
     }
 }
 

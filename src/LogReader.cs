@@ -23,6 +23,7 @@ namespace AxataPOS.LogReader
         Warn,
         Info,
         Debug,
+        Trace,
     }
 
     public class LogEntry
