@@ -1,14 +1,13 @@
-﻿namespace AxataPOS.LogReader
+﻿namespace AxataPOS.LogReader;
+
+internal class Config
 {
-    internal class Config
+    internal static int BATCH_SIZE
     {
-        internal static int BATCH_SIZE
+        get
         {
-            get
-            {
-                var setting = new Settings().Load();
-                return setting.BatchSize;
-            }
+            var setting = new Settings().Load();
+            return setting.BatchSize;
         }
     }
 }

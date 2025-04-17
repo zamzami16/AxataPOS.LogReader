@@ -2,24 +2,23 @@
 using System.Globalization;
 using System.Threading;
 
-namespace AxataPOS.App.Componen
+namespace AxataPOS.App.Componen;
+
+public sealed class AxataBackgroundWorker : BackgroundWorker
 {
-    public sealed class AxataBackgroundWorker : BackgroundWorker
+    public AxataBackgroundWorker() : base()
     {
-        public AxataBackgroundWorker() : base()
+        var currentCulture = Thread.CurrentThread.CurrentCulture;
+        CultureInfo englishCulture = new("en-US");
+        if (currentCulture.EnglishName != englishCulture.EnglishName)
         {
-            var currentCulture = Thread.CurrentThread.CurrentCulture;
-            CultureInfo englishCulture = new("en-US");
-            if (currentCulture.EnglishName != englishCulture.EnglishName)
+            try
             {
-                try
-                {
-                    Thread.CurrentThread.CurrentCulture = englishCulture;
-                    Thread.CurrentThread.CurrentUICulture = englishCulture;
-                }
-                catch
-                {
-                }
+                Thread.CurrentThread.CurrentCulture = englishCulture;
+                Thread.CurrentThread.CurrentUICulture = englishCulture;
+            }
+            catch
+            {
             }
         }
     }
