@@ -1,52 +1,51 @@
 ﻿using System;
 
-namespace AxataPOS.LogReader
+namespace AxataPOS.LogReader;
+
+public class Settings : IEquatable<Settings>
 {
-    public class Settings : IEquatable<Settings>
+    public int BatchSize { get; set; } = 1000;
+
+    public bool Equals(Settings other)
     {
-        public int BatchSize { get; set; } = 1000;
+        if (other == null)
+            return false;
 
-        public bool Equals(Settings other)
+        var properties = GetType().GetProperties();
+
+        foreach (var property in properties)
         {
-            if (other == null)
+            var thisValue = property.GetValue(this);
+            var otherValue = property.GetValue(other);
+
+            if (!thisValue.Equals(otherValue))
                 return false;
-
-            var properties = GetType().GetProperties();
-
-            foreach (var property in properties)
-            {
-                var thisValue = property.GetValue(this);
-                var otherValue = property.GetValue(other);
-
-                if (!thisValue.Equals(otherValue))
-                    return false;
-            }
-
-            return true;
         }
 
-        #region <<static method>>
-        private static Settings ReadSettings() => (new Settings()).Load();
-        private static Settings _instance;
-        public static Settings Instance => _instance ??= ReadSettings();
-        #endregion <<static method>>
+        return true;
     }
 
-    public static class SettingsExtension
+    #region <<static method>>
+    private static Settings ReadSettings() => (new Settings()).Load();
+    private static Settings _instance;
+    public static Settings Instance => _instance ??= ReadSettings();
+    #endregion <<static method>>
+}
+
+public static class SettingsExtension
+{
+    public static Settings Save(this Settings settings)
     {
-        public static Settings Save(this Settings settings)
-        {
-            Properties.Settings.Default.BATCH_SIZE = settings.BatchSize;
+        Properties.Settings.Default.BATCH_SIZE = settings.BatchSize;
 
-            Properties.Settings.Default.Save();
-            return settings;
-        }
+        Properties.Settings.Default.Save();
+        return settings;
+    }
 
-        public static Settings Load(this Settings settings)
-        {
-            settings.BatchSize = Properties.Settings.Default.BATCH_SIZE;
+    public static Settings Load(this Settings settings)
+    {
+        settings.BatchSize = Properties.Settings.Default.BATCH_SIZE;
 
-            return settings;
-        }
+        return settings;
     }
 }

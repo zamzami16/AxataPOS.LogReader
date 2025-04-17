@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AxataPOS LogReader")]
+[assembly: AssemblyTitle("AxataLogReader")]
 [assembly: AssemblyDescription("Read log file in json format for axatapos")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Axata Technology")]
-[assembly: AssemblyProduct("AxataPOS.LogReader")]
+[assembly: AssemblyProduct("AxataLogReader")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
