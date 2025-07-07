@@ -123,6 +123,16 @@ namespace AxataPOS.LogReader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ReloadOutlined {
+            get {
+                object obj = ResourceManager.GetObject("ReloadOutlined", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settings_12 {
             get {
                 object obj = ResourceManager.GetObject("settings_12", resourceCulture);

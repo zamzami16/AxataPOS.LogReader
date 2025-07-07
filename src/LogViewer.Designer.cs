@@ -56,6 +56,7 @@
             this.Exception = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDates = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.pageControl = new AxataPOS.LogReader.PageControl();
+            this.btnRefresh = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.CboFiles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CboLevel)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -81,19 +82,19 @@
             // TxtFolder
             // 
             this.TxtFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtFolder.Location = new System.Drawing.Point(483, 12);
+            this.TxtFolder.Location = new System.Drawing.Point(520, 12);
             this.TxtFolder.Name = "TxtFolder";
             this.TxtFolder.Palette = this.kryptonPalette1;
             this.TxtFolder.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.TxtFolder.ReadOnly = true;
-            this.TxtFolder.Size = new System.Drawing.Size(435, 23);
+            this.TxtFolder.Size = new System.Drawing.Size(398, 23);
             this.TxtFolder.TabIndex = 1;
             this.TxtFolder.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // CboFiles
             // 
             this.CboFiles.DropDownWidth = 260;
-            this.CboFiles.Location = new System.Drawing.Point(12, 12);
+            this.CboFiles.Location = new System.Drawing.Point(23, 12);
             this.CboFiles.Name = "CboFiles";
             this.CboFiles.Size = new System.Drawing.Size(260, 21);
             this.CboFiles.TabIndex = 3;
@@ -286,9 +287,9 @@
             // lblDates
             // 
             this.lblDates.AutoSize = false;
-            this.lblDates.Location = new System.Drawing.Point(278, 12);
+            this.lblDates.Location = new System.Drawing.Point(323, 12);
             this.lblDates.Name = "lblDates";
-            this.lblDates.Size = new System.Drawing.Size(199, 25);
+            this.lblDates.Size = new System.Drawing.Size(191, 25);
             this.lblDates.TabIndex = 14;
             this.lblDates.Values.Text = "2024/01/02  s/d  2024/01/03";
             // 
@@ -303,6 +304,16 @@
             this.pageControl.TabIndex = 10;
             this.pageControl.TotalPages = 1;
             this.pageControl.PageChanged += new System.EventHandler<int>(this.pageControl_PageChanged);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(289, 10);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(28, 25);
+            this.btnRefresh.TabIndex = 0;
+            this.btnRefresh.Values.Image = global::AxataPOS.LogReader.Properties.Resources.ReloadOutlined;
+            this.btnRefresh.Values.Text = "";
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // LogViewer
             // 
@@ -324,6 +335,7 @@
             this.Controls.Add(this.DtpStart);
             this.Controls.Add(this.CboFiles);
             this.Controls.Add(this.TxtFolder);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.BtnBrowseFolder);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogViewer";
@@ -374,6 +386,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Logger;
         private System.Windows.Forms.DataGridViewTextBoxColumn Message;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exception;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRefresh;
     }
 }
 

@@ -175,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8-log-48.ico" />
+    <None Include="Resources\ReloadOutlined.png" />
     <None Include="Resources\detail-12.png" />
     <None Include="Resources\settings-12.png" />
     <None Include="Resources\last-12.png" />
