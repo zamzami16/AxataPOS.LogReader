@@ -42,7 +42,13 @@ public class LogReader
     public IEnumerable<LogEntry> ReadLogFile(string filePath)
     {
         entries = new List<LogEntry>();
-        using (var reader = new StreamReader(filePath))
+
+        using var fs = new FileStream(
+            filePath,
+            FileMode.Open,
+            FileAccess.Read,
+            FileShare.ReadWrite | FileShare.Delete);
+        using (var reader = new StreamReader(fs))
         {
             string line;
             while ((line = reader.ReadLine()) != null)
