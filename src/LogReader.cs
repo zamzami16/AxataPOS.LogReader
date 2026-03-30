@@ -33,6 +33,7 @@ public class LogEntry
     public string Logger { get; set; } = string.Empty;
     public string Message { get; set; } = string.Empty;
     public string Exception { get; set; } = string.Empty;
+    public string Properties { get; set; } = string.Empty;
 }
 
 public class LogReader
@@ -59,16 +60,6 @@ public class LogReader
         }
         return entries;
     }
-
-    public IEnumerable<LogEntry> Filter(IEnumerable<LogEntry> logEntries, LogFilter logFilter)
-    {
-        if (logEntries == null)
-        {
-            logEntries = entries;
-        }
-
-        return logEntries.Filters(logFilter);
-    }
 }
 
 public static class LogEntriesFilter
@@ -84,6 +75,7 @@ public static class LogEntriesFilter
                 (l.Message.ContainsIgnoreCase(filters)
                     || l.Exception.ContainsIgnoreCase(filters)
                     || l.Logger.ContainsIgnoreCase(filters)
+                    || l.Properties.ContainsIgnoreCase(filters)
                 ) && l.Time >= start && l.Time <= end);
 
         if (logFilter.LogLevel != LogLevel.Semua)

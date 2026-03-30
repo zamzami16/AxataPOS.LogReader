@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogViewer));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.BtnBrowseFolder = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -53,6 +53,7 @@
             this.Level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Logger = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Message = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Properties = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Exception = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDates = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.pageControl = new AxataPOS.LogReader.PageControl();
@@ -209,8 +210,8 @@
             // 
             this.DgvData.AllowUserToAddRows = false;
             this.DgvData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            this.DgvData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.AliceBlue;
+            this.DgvData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -220,6 +221,7 @@
             this.Level,
             this.Logger,
             this.Message,
+            this.Properties,
             this.Exception});
             this.DgvData.ContextMenuStrip = this.contextMenuStrip1;
             this.DgvData.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -236,8 +238,8 @@
             // 
             this.Time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Time.DataPropertyName = "Time";
-            dataGridViewCellStyle2.Format = "yyyy/MM/dd HH:mm:ss:fff";
-            this.Time.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "yyyy/MM/dd HH:mm:ss:fff";
+            this.Time.DefaultCellStyle = dataGridViewCellStyle4;
             this.Time.HeaderText = "Timestamp";
             this.Time.MinimumWidth = 150;
             this.Time.Name = "Time";
@@ -273,6 +275,14 @@
             this.Message.MinimumWidth = 175;
             this.Message.Name = "Message";
             this.Message.ReadOnly = true;
+            // 
+            // Properties
+            // 
+            this.Properties.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Properties.DataPropertyName = "Properties";
+            this.Properties.HeaderText = "Properties";
+            this.Properties.Name = "Properties";
+            this.Properties.ReadOnly = true;
             // 
             // Exception
             // 
@@ -381,12 +391,13 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblDates;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem MenuSettings;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.DataGridViewTextBoxColumn Level;
         private System.Windows.Forms.DataGridViewTextBoxColumn Logger;
         private System.Windows.Forms.DataGridViewTextBoxColumn Message;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Properties;
         private System.Windows.Forms.DataGridViewTextBoxColumn Exception;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnRefresh;
     }
 }
 

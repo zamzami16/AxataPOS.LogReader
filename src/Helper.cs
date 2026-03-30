@@ -38,7 +38,8 @@ public static class Helper
                 Logger = row.Field<string>("logger"),
                 Time = row.Field<DateTime>("time"),
                 Exception = row.Field<string>("exception"),
-                Message = row.Field<string>("message")
+                Message = row.Field<string>("message"),
+                Properties = row.Table.Columns.Contains("properties") ? row.Field<string>("properties") : string.Empty
             };
         }
         return null;

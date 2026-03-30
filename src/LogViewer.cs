@@ -1,4 +1,5 @@
-﻿using AxataPOS.App.Helper;
+﻿using AxataPOS.App.Common;
+using AxataPOS.App.Helper;
 using ComponentFactory.Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
@@ -87,7 +88,6 @@ public partial class LogViewer : KryptonForm
         {
             GetFile();
         }
-        SupplyData();
     }
 
     private void GetFile()
@@ -106,28 +106,7 @@ public partial class LogViewer : KryptonForm
         if (openFileDialog.ShowDialog() == DialogResult.OK)
         {
             string fullPath = openFileDialog.FileName;
-            ReadFile(fullPath);
-        }
-    }
-
-    private void ReadFile(string fullPath)
-    {
-        string fileName = Path.GetFileName(fullPath);
-        FilePaths[fileName] = fullPath;
-        if (_allLogEntries.ContainsKey(fileName))
-        {
-            return;
-        }
-
-        CboFiles.Items.Add(fileName);
-        CboFiles.Text = fileName;
-        try
-        {
-            _allLogEntries.Add(fileName, _logReader.ReadLogFile(fullPath));
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Error reading JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            LoadData(new string[] { fullPath });
         }
     }
 
@@ -141,7 +120,10 @@ public partial class LogViewer : KryptonForm
             FilePaths.Remove(fileName);
         }
 
-        ReadFile(filePath);
+        CboFiles.Items.Add(fileName);
+        FilePaths[fileName] = filePath;
+        var logEntries = _logReader.ReadLogFile(filePath);
+        _allLogEntries[fileName] = logEntries;
     }
 
     private void ChangeLblDates()
@@ -334,11 +316,7 @@ public partial class LogViewer : KryptonForm
         string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
         // Perform operations with the file paths
-        foreach (string file in files)
-        {
-            ReadOrUpdate(file);
-        }
-        SupplyData();
+        LoadData(files);
     }
 
     private void MenuSettings_Click(object sender, EventArgs e)
@@ -354,10 +332,25 @@ public partial class LogViewer : KryptonForm
     private void BtnRefresh_Click(object sender, EventArgs e)
     {
         var files = FilePaths.Select(s => s.Value.ToString()).ToArray();
-        foreach (var file in files)
+        LoadData(files);
+    }
+
+    private void LoadData(IEnumerable<string> files)
+    {
+        files ??= new List<string>();
+        using var loading = LoadingForm.Create()
+            .WithCallback(() =>
+            {
+                foreach (var file in files)
+                {
+                    ReadOrUpdate(file);
+                }
+            })
+            .OnError(ex => MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error));
+
+        if (loading.Run() == DialogResult.OK)
         {
-            ReadOrUpdate(file);
+            SupplyData();
         }
-        SupplyData();
     }
 }
