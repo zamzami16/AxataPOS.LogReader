@@ -50,12 +50,6 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.kryptonLabel26 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kryptonLabel27 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonRichTextBox3 = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.kryptonLabel8 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel14 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.kryptonLabel18 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.rtbException = new ComponentFactory.Krypton.Toolkit.KryptonRichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).BeginInit();
@@ -72,7 +66,6 @@
             this.kryptonSplitContainer2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -238,7 +231,6 @@
             // kryptonSplitContainer1.Panel2
             // 
             this.kryptonSplitContainer1.Panel2.Controls.Add(this.kryptonSplitContainer2);
-            this.kryptonSplitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.kryptonSplitContainer1.SeparatorStyle = ComponentFactory.Krypton.Toolkit.SeparatorStyle.HighProfile;
             this.kryptonSplitContainer1.Size = new System.Drawing.Size(784, 470);
             this.kryptonSplitContainer1.SplitterDistance = 217;
@@ -308,7 +300,7 @@
             this.rtbProperties.Location = new System.Drawing.Point(148, 3);
             this.rtbProperties.Name = "rtbProperties";
             this.rtbProperties.ReadOnly = true;
-            this.rtbProperties.Size = new System.Drawing.Size(633, 119);
+            this.rtbProperties.Size = new System.Drawing.Size(633, 98);
             this.rtbProperties.TabIndex = 11;
             this.rtbProperties.Text = "";
             // 
@@ -321,13 +313,13 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.kryptonLabel26, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.kryptonLabel27, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.kryptonRichTextBox3, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.rtbException, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 268F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(784, 139);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
@@ -350,81 +342,13 @@
             this.kryptonLabel27.TabIndex = 7;
             this.kryptonLabel27.Values.Text = "Exception";
             // 
-            // kryptonRichTextBox3
-            // 
-            this.kryptonRichTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kryptonRichTextBox3.Location = new System.Drawing.Point(148, 3);
-            this.kryptonRichTextBox3.Name = "kryptonRichTextBox3";
-            this.kryptonRichTextBox3.ReadOnly = true;
-            this.kryptonRichTextBox3.Size = new System.Drawing.Size(633, 133);
-            this.kryptonRichTextBox3.TabIndex = 11;
-            this.kryptonRichTextBox3.Text = "";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.kryptonLabel8, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.kryptonLabel4, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.kryptonLabel14, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.kryptonLabel18, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.rtbException, 2, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 164);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(784, 398);
-            this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // kryptonLabel8
-            // 
-            this.kryptonLabel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonLabel8.Location = new System.Drawing.Point(128, 3);
-            this.kryptonLabel8.Name = "kryptonLabel8";
-            this.kryptonLabel8.Size = new System.Drawing.Size(14, 20);
-            this.kryptonLabel8.TabIndex = 13;
-            this.kryptonLabel8.Values.Text = ":";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonLabel4.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel4.Location = new System.Drawing.Point(3, 3);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(119, 20);
-            this.kryptonLabel4.TabIndex = 12;
-            this.kryptonLabel4.Values.Text = "Properties";
-            // 
-            // kryptonLabel14
-            // 
-            this.kryptonLabel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonLabel14.Location = new System.Drawing.Point(128, 103);
-            this.kryptonLabel14.Name = "kryptonLabel14";
-            this.kryptonLabel14.Size = new System.Drawing.Size(14, 20);
-            this.kryptonLabel14.TabIndex = 3;
-            this.kryptonLabel14.Values.Text = ":";
-            // 
-            // kryptonLabel18
-            // 
-            this.kryptonLabel18.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kryptonLabel18.LabelStyle = ComponentFactory.Krypton.Toolkit.LabelStyle.BoldControl;
-            this.kryptonLabel18.Location = new System.Drawing.Point(3, 103);
-            this.kryptonLabel18.Name = "kryptonLabel18";
-            this.kryptonLabel18.Size = new System.Drawing.Size(119, 20);
-            this.kryptonLabel18.TabIndex = 7;
-            this.kryptonLabel18.Values.Text = "Exception";
-            // 
             // rtbException
             // 
             this.rtbException.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbException.Location = new System.Drawing.Point(148, 103);
+            this.rtbException.Location = new System.Drawing.Point(148, 3);
             this.rtbException.Name = "rtbException";
             this.rtbException.ReadOnly = true;
-            this.rtbException.Size = new System.Drawing.Size(633, 292);
+            this.rtbException.Size = new System.Drawing.Size(633, 133);
             this.rtbException.TabIndex = 11;
             this.rtbException.Text = "";
             // 
@@ -448,7 +372,6 @@
             this.kryptonSplitContainer1.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1.Panel2)).EndInit();
             this.kryptonSplitContainer1.Panel2.ResumeLayout(false);
-            this.kryptonSplitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer1)).EndInit();
             this.kryptonSplitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kryptonSplitContainer2.Panel1)).EndInit();
@@ -463,8 +386,6 @@
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -484,10 +405,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel10;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel lblModule;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel14;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel18;
-        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox rtbException;
         private ComponentFactory.Krypton.Toolkit.KryptonSplitContainer kryptonSplitContainer2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel13;
@@ -496,8 +413,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel26;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel27;
-        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox3;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel8;
-        private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private ComponentFactory.Krypton.Toolkit.KryptonRichTextBox rtbException;
     }
 }

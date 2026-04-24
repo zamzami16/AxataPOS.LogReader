@@ -113,16 +113,25 @@ public partial class LogViewer : KryptonForm
     private void ReadOrUpdate(string filePath)
     {
         string fileName = Path.GetFileName(filePath);
-        if (_allLogEntries.ContainsKey(fileName))
+        if (!_allLogEntries.ContainsKey(fileName))
         {
-            _allLogEntries.Remove(fileName);
-            CboFiles.Items.Remove(fileName);
-            FilePaths.Remove(fileName);
+            if (CboFiles.InvokeRequired)
+            {
+                CboFiles.Invoke(new Action(() =>
+                {
+                    CboFiles.Items.Add(fileName);
+                    CboFiles.SelectedItem = fileName;
+                }));
+            }
+            else
+            {
+                CboFiles.Items.Add(fileName);
+                CboFiles.SelectedItem = fileName;
+            }
+            FilePaths[fileName] = filePath;
         }
 
-        CboFiles.Items.Add(fileName);
-        FilePaths[fileName] = filePath;
-        var logEntries = _logReader.ReadLogFile(filePath);
+        var logEntries = _logReader.ReadLogFile(filePath).ToArray();
         _allLogEntries[fileName] = logEntries;
     }
 
