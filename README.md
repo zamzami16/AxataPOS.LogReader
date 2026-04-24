@@ -10,7 +10,8 @@ The format of the logs is in this json format:
   "level": "string",
   "logger": "string",
   "message": "string",
-  "exception": "string"
+  "exception": "string",
+  "properties": "string"
 }
 ```
 
@@ -31,6 +32,7 @@ if you use NLog, please configure the Nlog.config like this:
 				<attribute name="logger" layout="${logger}"/>
 				<attribute name="message" layout="${message}"/>
 				<attribute name="exception" layout="${exception:format=ToString,Data:maxInnerExceptionLevel=10}"/>
+				<attribute name="properties" layout="${MaxRecursionLimit=10,IncludeScopeProperties=true,ExcludeEmptyProperties=true}"/>
 			</layout>
 		</target>
 		<target name="logconsole" xsi:type="Console" />
